@@ -81,19 +81,11 @@ export default function MultiColorConfig() {
                 onChange={e => updateStateAndClearCache(setShape, e.target.value, 'shape')}
                 className="bg-white/5 border border-white/10 rounded-lg py-2 px-3 text-white focus:outline-none focus:border-brand-accent transition-colors"
               >
-                <option value="Heart">Heart</option>
-                <option value="Star">Star</option>
-                <option value="Circle">Circle</option>
-                <option value="Hexagon">Hexagon</option>
-                <option value="Pentagon">Pentagon</option>
-                <option value="Triangle">Triangle</option>
-                <option value="Diamond">Diamond</option>
-                <option value="Moon">Moon</option>
-                <option value="Parallelogram">Parallelogram</option>
-                <option value="Cat">Cat</option>
-                <option value="Bird">Bird</option>
-                <option value="Butterfly">Butterfly</option>
-                <option value="Fish">Fish</option>
+                {['Heart', 'Star', 'Circle', 'Hexagon', 'Pentagon', 'Triangle', 'Diamond', 'Moon', 'Parallelogram', 'Cat', 'Bird', 'Butterfly', 'Fish'].map(opt => (
+                  <option key={opt} value={opt} className="bg-[#111] text-white">
+                    {opt}
+                  </option>
+                ))}
               </select>
             </div>
 

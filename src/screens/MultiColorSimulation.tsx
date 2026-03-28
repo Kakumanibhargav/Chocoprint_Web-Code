@@ -209,6 +209,7 @@ export default function MultiColorSimulation() {
           </div>
         ) : (
           <Canvas camera={{ position: [0, -150, 250], fov: 60, up: [0, 0, 1] }}>
+            <color attach="background" args={['#0f172a']} />
             <ambientLight intensity={0.5} />
             <pointLight position={[100, 100, 100]} />
             <OrbitControls target={[0, 0, 0]} maxPolarAngle={Math.PI / 2} minDistance={50} maxDistance={500} />

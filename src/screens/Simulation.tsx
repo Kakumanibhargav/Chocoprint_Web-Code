@@ -71,11 +71,11 @@ function ToolpathLines({ commands, progress, showExtrusion = true, showTravel = 
         <Line 
           key={i} 
           points={seg.points} 
-          color={seg.isExtruding ? '#FFD700' : '#475569'} // Gold for extrusion, Slate for travel
-          lineWidth={seg.isExtruding ? 5 : 0.5}
+          color={seg.isExtruding ? '#b8860b' : '#ca8a04'} // Dark Yellow for extrusion and travel
+          lineWidth={seg.isExtruding ? 5 : 2}
           dashed={false} 
           transparent
-          opacity={seg.isExtruding ? 1 : 0.1}
+          opacity={seg.isExtruding ? 1 : 0.6}
         />
       ))}
     </group>
@@ -195,6 +195,7 @@ export default function Simulation() {
           </div>
         ) : (
           <Canvas camera={{ position: [0, -150, 250], fov: 60, up: [0, 0, 1] }}>
+            <color attach="background" args={['#0f172a']} />
             <ambientLight intensity={0.5} />
             <pointLight position={[100, 100, 100]} />
             <OrbitControls target={[0, 0, 0]} maxPolarAngle={Math.PI / 2} minDistance={50} maxDistance={500} />
@@ -278,14 +279,14 @@ export default function Simulation() {
             onClick={() => setShowExtrusion(!showExtrusion)}
             className={`flex items-center gap-2 transition-all hover:translate-x-1 ${showExtrusion ? 'opacity-100' : 'opacity-40'}`}
           >
-            <div className="w-4 h-1 bg-[#FFD700] rounded-full shadow-[0_0_8px_#FFD700]"></div>
+            <div className="w-4 h-1 bg-[#b8860b] rounded-full shadow-[0_0_8px_#b8860b]"></div>
             <span className="text-[10px] text-white font-bold uppercase">Extrusion</span>
           </button>
           <button 
             onClick={() => setShowTravel(!showTravel)}
             className={`flex items-center gap-2 transition-all hover:translate-x-1 ${showTravel ? 'opacity-100' : 'opacity-40'}`}
           >
-            <div className="w-4 h-1 bg-slate-500 rounded-full"></div>
+            <div className="w-4 h-1 bg-[#ca8a04] rounded-full"></div>
             <span className="text-[10px] text-brand-light font-bold uppercase">Travel</span>
           </button>
         </div>
