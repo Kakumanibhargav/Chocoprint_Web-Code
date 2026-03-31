@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://127.0.0.1:8000'; // ✅ backend URL (NO /api)
+const API_BASE_URL = 'http://180.235.121.253:8147'; // ✅ backend URL (NO /api)
 
 export const apiClient = {
   async post<T>(endpoint: string, body: any): Promise<T> {
@@ -18,7 +18,7 @@ export const apiClient = {
 
       let data;
       const contentType = response.headers.get('content-type');
-      
+
       if (contentType && contentType.includes('application/json')) {
         data = await response.json();
       } else {
